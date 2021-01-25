@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+When a funciton reaches outside of its own scope to access a variable.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Closure is used when referencing the personalDice function for dansRoll and zoesRoll. You can tell because it is retrieving information and a function from elsewhere in the code.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The variables which are being called are the same, the values that are assigned to said variables are randomized between 1 and 6, so the value will change every roll.
 c. What is the lexical scope of `newRoll`? 
-
+Anything within the personalDice function
 
 ### Task 3 - Stretch Goals
 
