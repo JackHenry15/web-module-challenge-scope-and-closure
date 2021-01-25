@@ -107,17 +107,17 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(inning, innNum) {
-  let homeScore = 0;
-  let awayScore = 0;
+//   let homeScore = 0;
+//   let awayScore = 0;
 
- for(let i = 0; i < innNum; i++){
-   const currentScore = inning();
-   homeScore = currentScore.Home
-   awayScore= currentScore.Away
- }
+//  for(let i = 0; i < innNum; i++){
+//    const currentScore = inning();
+//    homeScore = currentScore.Home
+//    awayScore = currentScore.Away
+//  }
  return {
-   Home: homeScore,
-   Away: awayScore
+   Home: inning(),
+   Away: inning()
  }
 }
 
@@ -165,17 +165,20 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScore, inning, innNum) {
   const totalGame = [];
-  const currentScore = inning();
-  let homeScore = 0;
-  let awayScore = 0;
-  for(i = 1; i < innNum; i++){
-    totalGame.push(`Inning ${i} : Away ${getInningScore.Away} - Home ${getInningScore.Home}`);
+  let finalAway = 0;
+  let finalHome = 0;
+
+  for(let i = 1; i < innNum + 1; i++){
+    const currentScore = getInningScore(inning, i);
+    finalAway = finalAway + currentScore.Away;
+    finalHome = finalHome + currentScore.Home;
+    totalGame.push(`Inning ${i}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
     
   }
-    if(finalScore.Home = finalScore.Away){
-      totalGame.push(`This game will require extra innings: Away ${finalScore.Away} - Home ${finalScore.Home}`)
+    if(finalHome = finalAway){
+      totalGame.push(`This game will require extra innings: Away ${finalAway} - Home ${finalHome}`)
     }else{
-      totalGame.push(`Final Score: Away ${finalScore.Away} - Home ${finalScore.Home}`)
+      totalGame.push(`Final Score: Away ${finalAway} - Home ${finalHome}`)
     }
 
 
@@ -183,8 +186,8 @@ function scoreboard(getInningScore, inning, innNum) {
   return totalGame;
 }
 
-scoreboard(getInningScore, inning, 9);
-console.log(totalGame);
+console.log(scoreboard(getInningScore, inning, 9));
+
 
 
 
