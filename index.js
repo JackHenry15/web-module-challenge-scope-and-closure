@@ -84,20 +84,19 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inning, innNum){ 
-  const totalScore = [];
+function finalScore(inning, innNum){   
+ 
   let homeScore = 0;
   let awayScore = 0;
-
   for(let i = 0; i < innNum; i++){
-    const currentScore = innNum(inning);
+    const currentScore = inning();
     homeScore = homeScore + currentScore.Home
     awayScore= awayScore + currentScore.Away
+   
   }
-  
   return {
-    Home: currentScore.Home(),
-    Away: currentScore.Away()
+    Home: homeScore,
+    Away: awayScore
   }
 
 }
@@ -108,7 +107,18 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(inning, innNum) {
-  
+  let homeScore = 0;
+  let awayScore = 0;
+
+ for(let i = 0; i < innNum; i++){
+   const currentScore = inning();
+   homeScore = currentScore.Home
+   awayScore= currentScore.Away
+ }
+ return {
+   Home: homeScore,
+   Away: awayScore
+ }
 }
 
 
